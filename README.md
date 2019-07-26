@@ -8,17 +8,20 @@ Results are published as prometheus metrics via a websocket.
 We also provide a Docker file.
 This is based on NVidia's CUDA container, adds a python installation and runs the exporter script.
 
+The basic usage is `docker run -d ...`
+
+The docker image is compatible to kubernetes environments.
+
 ## Prerequisites
 
-This requires NVidia GPUs capable of NVLink and the basic drivers being installed.
-This also requires `nvidia-smi` to be available.
+The docker image requires docker and NVidia GPUs capable of NVLink and the basic drivers being installed.
 
 The script expects the GPUs to be set via
 ```
 nvidia-smi nvlink -sc 0bz
 nvidia-smi nvlink -sc 1pz
 ```
-This also requires some python libraries, in particular https://github.com/prometheus/client_python
+The script uses `nvidia-smi` and some python libraries, in particular https://github.com/prometheus/client_python
 
 ## Working examples
 
@@ -28,23 +31,23 @@ Basically the script runs `nvidia-smi` commands and transforms output to some fo
 
 Running `nvidia-smi nvlink -g 0`:
 ```
-GPU 0: Tesla V100-SXM2-16GB (UUID: GPU-8dfc570f-9ee4-bdf1-c054-534675678586)
+GPU 0: Tesla V100-SXM2-16GB (UUID: GPU-8dfc570f-9ee4-bdf1-abcd-192837465abc)
          Link 0: Rx0: 0 KBytes, Tx0: 0 KBytes
          Link 1: Rx0: 100 KBytes, Tx0: 0 KBytes
          Link 2: Rx0: 0 KBytes, Tx0: 0 KBytes
          Link 3: Rx0: 0 KBytes, Tx0: 0 KBytes
-GPU 1: Tesla V100-SXM2-16GB (UUID: GPU-29123255-8aab-d30e-804b-934784375928)
+GPU 1: Tesla V100-SXM2-16GB (UUID: GPU-29123255-8aab-d30e-abcd-192837465abc)
          Link 0: Rx0: 0 KBytes, Tx0: 0 KBytes
          Link 1: Rx0: 0 KBytes, Tx0: 0 KBytes
          Link 2: Rx0: 50 KBytes, Tx0: 0 KBytes
          Link 3: Rx0: 0 KBytes, Tx0: 0 KBytes
-GPU 2: Tesla V100-SXM2-16GB (UUID: GPU-7db3a1e6-6150-9c24-1535-029283746563)
+GPU 2: Tesla V100-SXM2-16GB (UUID: GPU-7db3a1e6-6150-9c24-abcd-192837465abc)
          Link 0: Rx0: 0 KBytes, Tx0: 0 KBytes
          Link 1: Rx0: 0 KBytes, Tx0: 0 KBytes
          Link 2: Rx0: 0 KBytes, Tx0: 0 KBytes
          Link 3: Rx0: 0 KBytes, Tx0: 0 KBytes
          Link 4: Rx0: 0 KBytes, Tx0: 0 KBytes
-GPU 3: Tesla V100-SXM2-16GB (UUID: GPU-22ea33c7-5a76-9747-8030-028374655344)
+GPU 3: Tesla V100-SXM2-16GB (UUID: GPU-22ea33c7-5a76-9747-abcd-192837465abc)
          Link 0: Rx0: 0 KBytes, Tx0: 0 KBytes
          Link 1: Rx0: 0 KBytes, Tx0: 0 KBytes
          Link 2: Rx0: 0 KBytes, Tx0: 0 KBytes
