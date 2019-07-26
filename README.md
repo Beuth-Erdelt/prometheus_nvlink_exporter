@@ -29,7 +29,7 @@ Basically the script runs `nvidia-smi` commands and transforms output to some fo
 
 ### Collecting NVLink Informations
 
-Running `nvidia-smi nvlink -g 0`:
+This automatically runs  `nvidia-smi nvlink -g 0`:
 ```
 GPU 0: Tesla V100-SXM2-16GB (UUID: GPU-8dfc570f-9ee4-bdf1-abcd-192837465abc)
          Link 0: Rx0: 0 KBytes, Tx0: 0 KBytes
@@ -57,7 +57,7 @@ GPU 3: Tesla V100-SXM2-16GB (UUID: GPU-22ea33c7-5a76-9747-abcd-192837465abc)
 
 ### Collecting PCI Informations
 
-Running `nvidia-smi dmon -s t -c 1`
+This automatically runs `nvidia-smi dmon -s t -c 1`
 ```
 # gpu rxpci txpci
 # Idx  MB/s  MB/s
@@ -114,8 +114,3 @@ gpu_pci_rx_mb_per_s{GPUID="4"} 0.0
 gpu_pci_rx_mb_per_s{GPUID="0"} 0.0
 gpu_pci_rx_mb_per_s{GPUID="1"} 0.0
 ```
-
-## Wishlist
-* port as a parameter
-* nvlink traffic as a counter (it is gauge for the sake of it's `set_function` capability)
-* dynamic behaviour regarding GPUs counter types (bytes, packages, ...)
