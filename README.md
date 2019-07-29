@@ -10,6 +10,8 @@ This is based on NVidia's CUDA container, adds a python installation and runs th
 
 The basic usage is `docker run -d ...`
 
+The metrics can be scraped from port 8001.
+
 The docker image is compatible to kubernetes environments.
 
 ## Prerequisites
